@@ -1228,8 +1228,14 @@
             <form
               id="section-contact-form"
               class="space-y-5"
-              onsubmit="handleSectionFormSubmit(event)"
+              action="https://api.web3forms.com/submit"
+              method="POST"
             >
+              <input
+                type="hidden"
+                name="access_key"
+                value="238a6896-da64-4e55-95dd-ab1ed86d3f53"
+              />
               <h3 class="text-xl font-bold text-brand-heading mb-2">
                 Request an AI Consultation
               </h3>
@@ -1467,7 +1473,12 @@
         </div>
 
         <!---<form id="modal-form" class="space-y-4" onsubmit="handleModalFormSubmit(event)">-->
-        <form action="https://api.web3forms.com/submit" method="POST">
+        <form
+          id="modal-form"
+          class="space-y-4"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+        >
           <input
             type="hidden"
             name="access_key"
