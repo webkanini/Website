@@ -22,16 +22,19 @@
                 extend: {
                     colors: {
                         brand: {
-                            navy: '#0a192f',
+                            navy: '#0B192C',
                             navyDark: '#051124',
-                            blue: '#0066ff',
-                            blueHover: '#0052cc',
-                            cyan: '#00c6ff',
-                            teal: '#00d2ff',
-                            heading: '#0f172a',
+                            navyBlue: '#1E3A8A',
+                            blue: '#0066FF',
+                            blueHover: '#0052CC',
+                            teal: '#00C853',
+                            cyan: '#00B4D8',
+                            emerald: '#10B981',
+                            heading: '#0F172A',
                             subtext: '#475569',
-                            bgLight: '#f8fafc',
-                            cardBorder: '#e2e8f0'
+                            bgLight: '#F8FAFC',
+                            bgCard: '#F1F5F9',
+                            cardBorder: '#E2E8F0'
                         }
                     },
                     fontFamily: {
@@ -52,24 +55,24 @@
 
         /* Hero Background with Dubai Skyline Overlay */
         .hero-bg {
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.92) 42%, rgba(10, 25, 47, 0.25) 100%),
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.92) 45%, rgba(11, 25, 44, 0.3) 100%),
                         url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2000&auto=format&fit=crop');
             background-size: cover;
             background-position: center right;
         }
 
-        /* Subtle glowing digital connection nodes on hero */
+        /* Glowing digital connection nodes overlay */
         .tech-nodes-overlay {
-            background-image: radial-gradient(circle at 75% 30%, rgba(0, 198, 255, 0.25) 0%, transparent 40%),
-                              radial-gradient(circle at 85% 70%, rgba(0, 102, 255, 0.2) 0%, transparent 45%);
+            background-image: radial-gradient(circle at 75% 30%, rgba(0, 180, 216, 0.22) 0%, transparent 40%),
+                              radial-gradient(circle at 85% 70%, rgba(0, 102, 255, 0.18) 0%, transparent 45%);
         }
 
-        /* Custom soft tint icon containers */
-        .icon-box-gear { background-color: #e0f2fe; color: #0284c7; }
-        .icon-box-nodes { background-color: #ccfbf1; color: #0d9488; }
-        .icon-box-db { background-color: #f3e8ff; color: #9333ea; }
-        .icon-box-cloud { background-color: #e0f2fe; color: #0284c7; }
-        .icon-box-doc { background-color: #e0f2fe; color: #2563eb; }
+        /* Custom soft tint icon containers matching mockup */
+        .icon-box-gear { background-color: #E0F2FE; color: #0284C7; }
+        .icon-box-nodes { background-color: #CCFBF1; color: #0D9488; }
+        .icon-box-db { background-color: #F3E8FF; color: #9333EA; }
+        .icon-box-cloud { background-color: #E0F2FE; color: #0284C7; }
+        .icon-box-doc { background-color: #E0F2FE; color: #2563EB; }
 
         /* Card Hover Effects */
         .service-card {
@@ -78,27 +81,38 @@
         .service-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 30px -10px rgba(0, 102, 255, 0.12);
-            border-color: #cbd5e1;
+            border-color: #CBD5E1;
         }
 
-        /* Underline Active Nav Pill */
-        .nav-link-active {
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            border-color: #0066FF;
+            box-shadow: 0 10px 25px -5px rgba(0, 102, 255, 0.08);
+        }
+
+        /* Underline Navigation Pill Effect */
+        .nav-link {
             position: relative;
-            color: #0066ff;
+            transition: color 0.2s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #0066FF;
             font-weight: 600;
         }
-        .nav-link-active::after {
+        .nav-link.active::after {
             content: '';
             position: absolute;
             bottom: -18px;
             left: 0;
             width: 100%;
             height: 2.5px;
-            background-color: #00d2ff;
+            background-color: #00B4D8;
             border-radius: 2px;
         }
 
-        /* Modal backdrop transition */
+        /* Modal blur */
         .modal-blur {
             backdrop-filter: blur(8px);
         }
@@ -106,21 +120,20 @@
 </head>
 <body class="antialiased">
 
-    <!-- 1. STICKY NAVIGATION HEADER -->
+    <!-- 1. TOP NAVIGATION BAR -->
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
             <!-- Logo -->
-            <a href="#" class="flex items-center space-x-3 group">
+            <a href="#home" class="flex items-center space-x-3 group">
                 <!-- Custom W Node Logo Icon -->
                 <svg width="38" height="34" viewBox="0 0 38 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 8C4 5.79086 5.79086 4 8 4C10.2091 4 12 5.79086 12 8C12 9.53932 11.129 10.8753 9.85827 11.5367L15.2265 24.0625L19 15.25L22.7735 24.0625L28.1417 11.5367C26.871 10.8753 26 9.53932 26 8C26 5.79086 27.7909 4 30 4C32.2091 4 34 5.79086 34 8C34 10.2091 32.2091 12 30 12C29.6202 12 29.2559 11.9472 28.9109 11.8488L22.4285 27.0001C21.8213 28.4168 19.8252 28.4168 19.218 27.0001L15.65 18.6747L12.082 27.0001C11.4748 28.4168 9.47871 28.4168 8.87151 27.0001L2.38908 11.8488C2.04414 11.9472 1.67981 12 1.3 12C-0.909139 12 -2.7 10.2091 -2.7 8" fill="none"/>
-                    <circle cx="6" cy="6" r="4" fill="#00d2ff"/>
-                    <circle cx="19" cy="8" r="4" fill="#0066ff"/>
-                    <circle cx="32" cy="6" r="4" fill="#0a192f"/>
-                    <path d="M6 6L12.5 22L19 8L25.5 22L32 6" stroke="#0066ff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="12.5" cy="22" r="3.5" fill="#00c6ff"/>
-                    <circle cx="25.5" cy="22" r="3.5" fill="#0066ff"/>
+                    <circle cx="6" cy="6" r="4" fill="#00B4D8"/>
+                    <circle cx="19" cy="8" r="4" fill="#0066FF"/>
+                    <circle cx="32" cy="6" r="4" fill="#0B192C"/>
+                    <path d="M6 6L12.5 22L19 8L25.5 22L32 6" stroke="#0066FF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12.5" cy="22" r="3.5" fill="#00C853"/>
+                    <circle cx="25.5" cy="22" r="3.5" fill="#0066FF"/>
                 </svg>
                 <div class="flex flex-col">
                     <span class="text-xl font-extrabold text-brand-navy tracking-tight leading-none">WEBKANINI</span>
@@ -128,45 +141,45 @@
                 </div>
             </a>
 
-            <!-- Nav Links -->
-            <nav class="hidden md:flex items-center space-x-9 text-sm font-medium text-slate-600">
-                <a href="#home" class="nav-link-active">Home</a>
-                <a href="#about" class="hover:text-brand-blue transition-colors">About Us</a>
-                <a href="#services" class="hover:text-brand-blue transition-colors">Services</a>
-                <a href="#industries" class="hover:text-brand-blue transition-colors">Industries</a>
-                <a href="#why-us" class="hover:text-brand-blue transition-colors">Why Us</a>
-                <a href="#contact" class="hover:text-brand-blue transition-colors">Contact</a>
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
+                <a href="#home" class="nav-link active" id="nav-home">Home</a>
+                <a href="#about" class="nav-link" id="nav-about">About Us</a>
+                <a href="#services" class="nav-link" id="nav-services">Services</a>
+                <a href="#industries" class="nav-link" id="nav-industries">Industries</a>
+                <a href="#why-us" class="nav-link" id="nav-why-us">Why Us</a>
+                <a href="#contact" class="nav-link" id="nav-contact">Contact</a>
             </nav>
 
-            <!-- CTA Button -->
+            <!-- Header Action CTA Button -->
             <div class="hidden sm:flex items-center">
-                <button onclick="openContactModal()" class="bg-brand-blue hover:bg-brand-blueHover text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 shadow-md shadow-blue-500/20 flex items-center space-x-2">
+                <a href="#contact" onclick="openContactModal(event)" class="bg-brand-blue hover:bg-brand-blueHover text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 shadow-md shadow-blue-500/20 flex items-center space-x-2">
                     <span>Get in Touch</span>
                     <i class="fa-solid fa-arrow-right text-xs"></i>
-                </button>
+                </a>
             </div>
 
-            <!-- Mobile Menu Toggle -->
-            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-700 p-2 focus:outline-none">
+            <!-- Mobile Drawer Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-700 p-2 focus:outline-none" aria-label="Toggle Navigation">
                 <i class="fa-solid fa-bars text-xl"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu Drawer -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3">
-            <a href="#home" class="block font-semibold text-brand-blue py-1">Home</a>
-            <a href="#about" class="block text-slate-600 py-1">About Us</a>
-            <a href="#services" class="block text-slate-600 py-1">Services</a>
-            <a href="#industries" class="block text-slate-600 py-1">Industries</a>
-            <a href="#why-us" class="block text-slate-600 py-1">Why Us</a>
-            <a href="#contact" class="block text-slate-600 py-1">Contact</a>
-            <button onclick="openContactModal()" class="w-full bg-brand-blue text-white py-2.5 rounded-full font-semibold text-sm mt-2">
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3 shadow-lg">
+            <a href="#home" onclick="toggleMobileMenu()" class="block font-semibold text-brand-blue py-1">Home</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block text-slate-600 py-1">About Us</a>
+            <a href="#services" onclick="toggleMobileMenu()" class="block text-slate-600 py-1">Services</a>
+            <a href="#industries" onclick="toggleMobileMenu()" class="block text-slate-600 py-1">Industries</a>
+            <a href="#why-us" onclick="toggleMobileMenu()" class="block text-slate-600 py-1">Why Us</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block text-slate-600 py-1">Contact</a>
+            <a href="#contact" onclick="toggleMobileMenu(); openContactModal(event)" class="block w-full text-center bg-brand-blue text-white py-2.5 rounded-full font-semibold text-sm mt-2">
                 Get in Touch →
-            </button>
+            </a>
         </div>
     </header>
 
-    <!-- 2. HERO SECTION (Dubai Skyline with Overlay Content) -->
+    <!-- 2. HERO SECTION -->
     <section id="home" class="relative hero-bg tech-nodes-overlay min-h-[580px] lg:min-h-[640px] flex items-center py-16 lg:py-20 border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="max-w-2xl space-y-6">
@@ -176,37 +189,37 @@
                     INTELLIGENT SOLUTIONS. LASTING IMPACT.
                 </div>
 
-                <!-- Main Headline -->
+                <!-- Headline -->
                 <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-heading leading-[1.15] tracking-tight">
                     Transforming Businesses Through <span class="text-brand-blue">Smarter Technology</span>
                 </h1>
 
-                <!-- Body Copy -->
+                <!-- Body Text -->
                 <p class="text-slate-600 text-sm sm:text-base leading-relaxed pr-2 sm:pr-6">
                     Webkanini Technologies helps businesses transform and optimise their operations through intelligent automation, systems integration and enterprise resource planning. We connect business processes, streamline workflows and enable organisations to improve efficiency, visibility and scalability.
                 </p>
 
-                <!-- Action Buttons -->
+                <!-- Action CTA Buttons -->
                 <div class="flex flex-wrap items-center gap-4 pt-3">
                     <a href="#services" class="bg-brand-blue hover:bg-brand-blueHover text-white px-7 py-3 rounded-full font-bold text-sm transition-all shadow-lg shadow-blue-500/25 flex items-center space-x-2">
                         <span>Explore Our Services</span>
                         <i class="fa-solid fa-arrow-right text-xs"></i>
                     </a>
-                    <button onclick="openContactModal()" class="text-brand-heading hover:text-brand-blue font-bold text-sm px-4 py-3 flex items-center space-x-2 transition-colors">
+                    <a href="#contact" onclick="openContactModal(event)" class="text-brand-heading hover:text-brand-blue font-bold text-sm px-4 py-3 flex items-center space-x-2 transition-colors">
                         <span>Get in Touch</span>
                         <i class="fa-solid fa-arrow-right text-xs text-brand-blue"></i>
-                    </button>
+                    </a>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- 3. OUR SERVICES SECTION (5 Column Cards) -->
+    <!-- 3. OUR SERVICES SECTION (5 Horizontal Cards) -->
     <section id="services" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <!-- Section Header Grid -->
+            <!-- Section Header -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-14">
                 <div class="lg:col-span-6 space-y-2">
                     <div class="text-xs font-extrabold text-brand-blue uppercase tracking-widest">
@@ -223,10 +236,10 @@
                 </div>
             </div>
 
-            <!-- 5 Column Services Grid -->
+            <!-- 5 Column Service Cards -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
                 
-                <!-- Service Card 1 -->
+                <!-- Service 1 -->
                 <div class="service-card bg-white border border-slate-200/90 rounded-2xl p-6 flex flex-col justify-between">
                     <div>
                         <div class="w-11 h-11 rounded-xl icon-box-gear flex items-center justify-center text-lg mb-5">
@@ -241,7 +254,7 @@
                     </div>
                 </div>
 
-                <!-- Service Card 2 -->
+                <!-- Service 2 -->
                 <div class="service-card bg-white border border-slate-200/90 rounded-2xl p-6 flex flex-col justify-between">
                     <div>
                         <div class="w-11 h-11 rounded-xl icon-box-nodes flex items-center justify-center text-lg mb-5">
@@ -256,7 +269,7 @@
                     </div>
                 </div>
 
-                <!-- Service Card 3 -->
+                <!-- Service 3 -->
                 <div class="service-card bg-white border border-slate-200/90 rounded-2xl p-6 flex flex-col justify-between">
                     <div>
                         <div class="w-11 h-11 rounded-xl icon-box-db flex items-center justify-center text-lg mb-5">
@@ -271,7 +284,7 @@
                     </div>
                 </div>
 
-                <!-- Service Card 4 -->
+                <!-- Service 4 -->
                 <div class="service-card bg-white border border-slate-200/90 rounded-2xl p-6 flex flex-col justify-between">
                     <div>
                         <div class="w-11 h-11 rounded-xl icon-box-cloud flex items-center justify-center text-lg mb-5">
@@ -286,7 +299,7 @@
                     </div>
                 </div>
 
-                <!-- Service Card 5 -->
+                <!-- Service 5 -->
                 <div class="service-card bg-white border border-slate-200/90 rounded-2xl p-6 flex flex-col justify-between sm:col-span-2 lg:col-span-1">
                     <div>
                         <div class="w-11 h-11 rounded-xl icon-box-doc flex items-center justify-center text-lg mb-5">
@@ -311,26 +324,24 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
-                <!-- Left Column: Business Imagery with Overlay Banner -->
+                <!-- Image Card with Text Overlay -->
                 <div class="lg:col-span-5 relative">
                     <div class="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3] sm:aspect-[16/11]">
                         <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000&auto=format&fit=crop" 
-                             alt="Webkanini Team in Business Meeting" 
+                             alt="Webkanini Team in Executive Consultation" 
                              class="w-full h-full object-cover">
-                        <!-- Dark Gradient Bottom Overlay -->
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent"></div>
                         
-                        <!-- Overlay Title -->
                         <div class="absolute bottom-6 left-6 right-6 text-white">
                             <div class="text-xl sm:text-2xl font-bold leading-snug">
                                 Your Partner in <br>Business Transformation
                             </div>
-                            <div class="w-12 h-1 bg-brand-teal mt-3 rounded-full"></div>
+                            <div class="w-12 h-1 bg-brand-cyan mt-3 rounded-full"></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Column: Text & 4 Pillars Grid -->
+                <!-- About Text & 4 Pillar Grid -->
                 <div class="lg:col-span-7 space-y-8">
                     <div class="space-y-3">
                         <h2 class="text-2xl sm:text-3xl font-bold text-brand-heading">
@@ -341,7 +352,7 @@
                         </p>
                     </div>
 
-                    <!-- 4 Pillars Grid (2x2 with vertical border accent) -->
+                    <!-- 4 Pillars Grid -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
                         
                         <!-- Pillar 1 -->
@@ -395,8 +406,8 @@
         </div>
     </section>
 
-    <!-- 5. OUR APPROACH SECTION (4 Step Horizontal Flow) -->
-    <section id="why-us" class="py-20 bg-white">
+    <!-- 5. OUR APPROACH SECTION (4 Horizontal Steps) -->
+    <section class="py-20 bg-white border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="mb-14">
@@ -408,7 +419,7 @@
                 </h2>
             </div>
 
-            <!-- Horizontal 4 Steps Grid -->
+            <!-- 4 Steps Flow -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
                 
                 <!-- Step 1 -->
@@ -472,7 +483,7 @@
     </section>
 
     <!-- 6. OUR VALUES SECTION -->
-    <section id="industries" class="py-16 bg-slate-50/70 border-t border-slate-200/60">
+    <section class="py-16 bg-slate-50/70 border-b border-slate-200/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -486,10 +497,9 @@
                     </h2>
                 </div>
 
-                <!-- 4 Horizontal Values Cards -->
+                <!-- 4 Values Row -->
                 <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     
-                    <!-- Value 1 -->
                     <div class="bg-white border border-slate-200/80 rounded-xl p-4 flex items-center space-x-3">
                         <i class="fa-regular fa-shield text-brand-blue text-xl shrink-0"></i>
                         <div>
@@ -498,7 +508,6 @@
                         </div>
                     </div>
 
-                    <!-- Value 2 -->
                     <div class="bg-white border border-slate-200/80 rounded-xl p-4 flex items-center space-x-3">
                         <i class="fa-solid fa-users text-brand-blue text-xl shrink-0"></i>
                         <div>
@@ -507,7 +516,6 @@
                         </div>
                     </div>
 
-                    <!-- Value 3 -->
                     <div class="bg-white border border-slate-200/80 rounded-xl p-4 flex items-center space-x-3">
                         <i class="fa-regular fa-lightbulb text-brand-blue text-xl shrink-0"></i>
                         <div>
@@ -516,7 +524,6 @@
                         </div>
                     </div>
 
-                    <!-- Value 4 -->
                     <div class="bg-white border border-slate-200/80 rounded-xl p-4 flex items-center space-x-3">
                         <i class="fa-solid fa-chart-line text-brand-blue text-xl shrink-0"></i>
                         <div>
@@ -532,38 +539,331 @@
         </div>
     </section>
 
-    <!-- 7. DARK NAVY FOOTER -->
-    <footer id="contact" class="bg-brand-navy text-slate-300 py-12 border-t border-slate-800">
+    <!-- 7. INDUSTRIES SECTION (Complete & Functional Content) -->
+    <section id="industries" class="py-20 bg-white border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="max-w-3xl mb-12 space-y-3">
+                <div class="text-xs font-extrabold text-brand-blue uppercase tracking-widest">
+                    INDUSTRIES WE SERVE
+                </div>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-heading">
+                    Industry Solutions Built for Scale
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    We combine domain knowledge with modern ERP, cloud integration, and process automation to solve complex operational challenges across key B2B sectors.
+                </p>
+            </div>
+
+            <!-- Industries Interactive Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Industry 1 -->
+                <div class="bg-slate-50/70 border border-slate-200/90 rounded-2xl p-7 hover:border-brand-blue transition-all flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-100 text-brand-blue flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-boxes-packing"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-brand-heading">Trading & Distribution</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            End-to-end supply chain visibility, multi-warehouse inventory reconciliation, automated purchase orders, and real-time shipment tracking.
+                        </p>
+                    </div>
+                    <ul class="mt-6 pt-4 border-t border-slate-200/80 text-xs text-slate-500 space-y-2">
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Automated Order Processing</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Multi-Currency Accounting</span></li>
+                    </ul>
+                </div>
+
+                <!-- Industry 2 -->
+                <div class="bg-slate-50/70 border border-slate-200/90 rounded-2xl p-7 hover:border-brand-blue transition-all flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-helmet-safety"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-brand-heading">Contracting & Engineering</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Comprehensive project accounting, job costing, percentage-of-completion revenue recognition, subcontractor billing, and field timesheet syncing.
+                        </p>
+                    </div>
+                    <ul class="mt-6 pt-4 border-t border-slate-200/80 text-xs text-slate-500 space-y-2">
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Real-Time Job Profitability</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Equipment Asset Tracking</span></li>
+                    </ul>
+                </div>
+
+                <!-- Industry 3 -->
+                <div class="bg-slate-50/70 border border-slate-200/90 rounded-2xl p-7 hover:border-brand-blue transition-all flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-brand-heading">Retail & Wholesale</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Seamless integration between e-commerce platforms, POS terminals, central ERP inventory, and automated fulfillment workflows.
+                        </p>
+                    </div>
+                    <ul class="mt-6 pt-4 border-t border-slate-200/80 text-xs text-slate-500 space-y-2">
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Omnichannel Inventory Sync</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Automated Returns Management</span></li>
+                    </ul>
+                </div>
+
+                <!-- Industry 4 -->
+                <div class="bg-slate-50/70 border border-slate-200/90 rounded-2xl p-7 hover:border-brand-blue transition-all flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-100 text-brand-cyan flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-brand-heading">Professional Services</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Optimised resource utilization dashboards, automated time & expense tracking, milestone-based invoicing, and client portal integrations.
+                        </p>
+                    </div>
+                    <ul class="mt-6 pt-4 border-t border-slate-200/80 text-xs text-slate-500 space-y-2">
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Resource Planning & Billing</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Customized Client Analytics</span></li>
+                    </ul>
+                </div>
+
+                <!-- Industry 5 -->
+                <div class="bg-slate-50/70 border border-slate-200/90 rounded-2xl p-7 hover:border-brand-blue transition-all flex flex-col justify-between sm:col-span-2 lg:col-span-2">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-hospital"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-brand-heading">Healthcare & Operations</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Process compliance automation, medical inventory auditing, asset tracking, and system integration across administrative and operations software.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-6 pt-4 border-t border-slate-200/80 text-xs text-slate-500">
+                        <div class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Medical Supply Audit Trails</span></div>
+                        <div class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>HIPAA & Regulatory Workflows</span></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 8. WHY US SECTION (Detailed Value Propositions & Differentiators) -->
+    <section id="why-us" class="py-20 bg-slate-50/60 border-b border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="max-w-3xl mb-14 space-y-3">
+                <div class="text-xs font-extrabold text-brand-blue uppercase tracking-widest">
+                    WHY CHOOSE WEBKANINI
+                </div>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-heading">
+                    Why Enterprise Leaders Partner with Us
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    We bridge technical engineering with practical business strategy to deliver solutions that fit your organization perfectly and drive measurable returns.
+                </p>
+            </div>
+
+            <!-- 4 High-Impact Feature Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                
+                <!-- Card 1 -->
+                <div class="feature-card bg-white border border-slate-200/90 rounded-2xl p-8 space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 text-brand-blue flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-brand-heading">Deep Functional & Technical Expertise</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Our team combines accounting controls, operational knowledge, and systems engineering. We speak both business logic and code, ensuring zero disconnect between requirements and implementation.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="feature-card bg-white border border-slate-200/90 rounded-2xl p-8 space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 text-brand-blue flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-brand-heading">Fit-for-Purpose Architecture</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        We reject bloated, over-engineered software stacks. Every solution is custom-configured around your exact workflows, keeping licensing costs reasonable and system performance high.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="feature-card bg-white border border-slate-200/90 rounded-2xl p-8 space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 text-brand-blue flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-diagram-project"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-brand-heading">Seamless Integration Capabilities</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        We eliminate data silos by connecting legacy software, modern cloud platforms, CRM databases, and custom APIs into a single, unified enterprise data ecosystem.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="feature-card bg-white border border-slate-200/90 rounded-2xl p-8 space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 text-brand-blue flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-brand-heading">End-to-End Implementation & Support</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Our engagement does not end at deployment. We conduct thorough user training, process auditing, performance tuning, and ongoing support for continuous optimization.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 9. CONTACT SECTION & INTERACTIVE FORM -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Left Info Box -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="space-y-3">
+                        <div class="text-xs font-extrabold text-brand-blue uppercase tracking-widest">
+                            GET IN TOUCH
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-heading">
+                            Let's Build Your Digital Future
+                        </h2>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            Ready to streamline your business operations and achieve sustainable growth? Speak with our technology consultants today.
+                        </p>
+                    </div>
+
+                    <!-- Contact Info Cards -->
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start space-x-4 p-4 bg-slate-50 rounded-xl border border-slate-200/80">
+                            <div class="w-10 h-10 rounded-lg bg-blue-100 text-brand-blue flex items-center justify-center text-base shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs font-semibold text-slate-500 uppercase">Email Us</div>
+                                <a href="mailto:info@webkanini.com" class="text-sm font-bold text-brand-heading hover:text-brand-blue transition-colors">info@webkanini.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 p-4 bg-slate-50 rounded-xl border border-slate-200/80">
+                            <div class="w-10 h-10 rounded-lg bg-blue-100 text-brand-blue flex items-center justify-center text-base shrink-0">
+                                <i class="fa-solid fa-globe"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs font-semibold text-slate-500 uppercase">Website</div>
+                                <a href="https://webkanini.com/" class="text-sm font-bold text-brand-heading hover:text-brand-blue transition-colors">https://webkanini.com/</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 p-4 bg-slate-50 rounded-xl border border-slate-200/80">
+                            <div class="w-10 h-10 rounded-lg bg-blue-100 text-brand-blue flex items-center justify-center text-base shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs font-semibold text-slate-500 uppercase">Locations</div>
+                                <div class="text-sm font-bold text-brand-heading">Dubai, United Arab Emirates & India</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Contact Form Card -->
+                <div class="lg:col-span-7 bg-slate-50/80 border border-slate-200/90 rounded-2xl p-8 sm:p-10 shadow-sm relative">
+                    
+                    <form id="section-contact-form" class="space-y-5" onsubmit="handleSectionFormSubmit(event)">
+                        <h3 class="text-xl font-bold text-brand-heading mb-2">Send Us a Message</h3>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Your Name *</label>
+                                <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-xs focus:outline-none focus:border-brand-blue">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Corporate Email *</label>
+                                <input type="email" required placeholder="john@company.com" class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-xs focus:outline-none focus:border-brand-blue">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label>
+                                <input type="tel" placeholder="+971 50 000 0000" class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-xs focus:outline-none focus:border-brand-blue">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Primary Interest</label>
+                                <select class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-xs focus:outline-none focus:border-brand-blue text-slate-700">
+                                    <option>Intelligent Business Automation</option>
+                                    <option>Systems Integration</option>
+                                    <option>Enterprise Resource Planning (ERP)</option>
+                                    <option>Digital Transformation Consulting</option>
+                                    <option>Business Process Optimisation</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Message / Requirements *</label>
+                            <textarea rows="4" required placeholder="Tell us about your project or current operational challenges..." class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-xs focus:outline-none focus:border-brand-blue"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-blue hover:bg-brand-blueHover text-white py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-blue-500/20">
+                            Submit Inquiry
+                        </button>
+                    </form>
+
+                    <!-- Success State -->
+                    <div id="section-form-success" class="hidden text-center py-12 space-y-4">
+                        <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-brand-heading">Thank You!</h4>
+                        <p class="text-xs text-slate-600 max-w-sm mx-auto">Your inquiry has been received successfully. A consultant from Webkanini Technologies will contact you shortly.</p>
+                        <button onclick="resetSectionForm()" class="px-6 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-lg text-xs font-semibold transition-colors">Send Another Message</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. DARK NAVY FOOTER -->
+    <footer class="bg-brand-navy text-slate-300 py-12 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
             
             <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
                 
                 <!-- Footer Brand & Tagline -->
                 <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
-                    <a href="#" class="flex items-center space-x-2">
+                    <a href="#home" class="flex items-center space-x-2">
                         <svg width="32" height="28" viewBox="0 0 38 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="6" cy="6" r="4" fill="#00d2ff"/>
-                            <circle cx="19" cy="8" r="4" fill="#0066ff"/>
+                            <circle cx="6" cy="6" r="4" fill="#00B4D8"/>
+                            <circle cx="19" cy="8" r="4" fill="#0066FF"/>
                             <circle cx="32" cy="6" r="4" fill="#ffffff"/>
-                            <path d="M6 6L12.5 22L19 8L25.5 22L32 6" stroke="#0066ff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 6L12.5 22L19 8L25.5 22L32 6" stroke="#0066FF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                         <span class="text-lg font-extrabold text-white tracking-wider">WEBKANINI <span class="text-xs text-brand-blue font-semibold tracking-[0.2em]">TECHNOLOGIES</span></span>
                     </a>
-                    <span class="hidden sm:inline text-slate-600">|</span>
+                    <span class="hidden sm:inline text-slate-700">|</span>
                     <span class="text-xs font-medium text-slate-400">Implement. Automate. Scale.</span>
                 </div>
 
-                <!-- Footer Nav & Social Icons -->
+                <!-- Footer Links & Social Icons -->
                 <div class="flex flex-wrap items-center gap-6 text-xs font-medium text-slate-300">
                     <a href="#home" class="hover:text-white transition-colors">Home</a>
                     <a href="#about" class="hover:text-white transition-colors">About Us</a>
                     <a href="#services" class="hover:text-white transition-colors">Services</a>
                     <a href="#industries" class="hover:text-white transition-colors">Industries</a>
+                    <a href="#why-us" class="hover:text-white transition-colors">Why Us</a>
                     <a href="#contact" class="hover:text-white transition-colors">Contact</a>
                     
-                    <div class="flex items-center space-x-3 pl-4 border-l border-slate-700">
-                        <a href="https://linkedin.com" target="_blank" class="hover:text-brand-teal transition-colors" aria-label="LinkedIn"><i class="fa-brands fa-linkedin text-base"></i></a>
-                        <a href="mailto:info@webkanini.com" class="hover:text-brand-teal transition-colors" aria-label="Email"><i class="fa-solid fa-envelope text-base"></i></a>
+                    <div class="flex items-center space-x-3 pl-4 border-l border-slate-800">
+                        <a href="https://linkedin.com" target="_blank" class="hover:text-brand-cyan transition-colors" aria-label="LinkedIn"><i class="fa-brands fa-linkedin text-base"></i></a>
+                        <a href="mailto:info@webkanini.com" class="hover:text-brand-cyan transition-colors" aria-label="Email"><i class="fa-solid fa-envelope text-base"></i></a>
                     </div>
                 </div>
 
@@ -584,7 +884,7 @@
         </div>
     </footer>
 
-    <!-- 8. INTERACTIVE GET IN TOUCH CONTACT MODAL -->
+    <!-- 11. INTERACTIVE POPUP MODAL (TRIGGERED BY GET IN TOUCH BUTTONS) -->
     <div id="contact-modal" class="fixed inset-0 bg-slate-950/70 modal-blur z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl border border-slate-100 space-y-6">
             
@@ -595,10 +895,10 @@
             <div class="space-y-1">
                 <div class="text-xs font-bold text-brand-blue uppercase tracking-widest">GET IN TOUCH</div>
                 <h3 class="text-2xl font-bold text-brand-heading">Start Your Transformation</h3>
-                <p class="text-xs text-slate-500">Fill in your details below and our solution consultants will respond within 24 hours.</p>
+                <p class="text-xs text-slate-500">Fill in your details below and our consultants will respond within 24 hours.</p>
             </div>
 
-            <form id="modal-form" class="space-y-4" onsubmit="handleFormSubmit(event)">
+            <form id="modal-form" class="space-y-4" onsubmit="handleModalFormSubmit(event)">
                 <div>
                     <label class="block text-xs font-semibold text-slate-600 mb-1">Full Name *</label>
                     <input type="text" required placeholder="John Doe" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-xs focus:outline-none focus:border-brand-blue">
@@ -642,14 +942,15 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- JAVASCRIPT LOGIC FOR NAVIGATION & INTERACTIVES -->
     <script>
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         }
 
-        function openContactModal() {
+        function openContactModal(e) {
+            if (e) e.preventDefault();
             document.getElementById('contact-modal').classList.remove('hidden');
         }
 
@@ -659,11 +960,41 @@
             document.getElementById('modal-success').classList.add('hidden');
         }
 
-        function handleFormSubmit(e) {
+        function handleModalFormSubmit(e) {
             e.preventDefault();
             document.getElementById('modal-form').classList.add('hidden');
             document.getElementById('modal-success').classList.remove('hidden');
         }
+
+        function handleSectionFormSubmit(e) {
+            e.preventDefault();
+            document.getElementById('section-contact-form').classList.add('hidden');
+            document.getElementById('section-form-success').classList.remove('hidden');
+        }
+
+        function resetSectionForm() {
+            document.getElementById('section-contact-form').reset();
+            document.getElementById('section-contact-form').classList.remove('hidden');
+            document.getElementById('section-form-success').classList.add('hidden');
+        }
+
+        // Active Navigation Highlight on Scroll
+        window.addEventListener('scroll', () => {
+            const sections = ['home', 'about', 'services', 'industries', 'why-us', 'contact'];
+            const scrollPos = window.scrollY + 120;
+
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                const navLink = document.getElementById(`nav-${id}`);
+                if (el && navLink) {
+                    if (el.offsetTop <= scrollPos && (el.offsetTop + el.offsetHeight) > scrollPos) {
+                        navLink.classList.add('active');
+                    } else {
+                        navLink.classList.remove('active');
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
