@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webkanini Technologies | Transforming Businesses Through Smarter Technology</title>
+    <title>Webkanini Technologies | AI-Driven Enterprise Digital Transformation</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,12 +22,12 @@
                 extend: {
                     colors: {
                         brand: {
-                            navy: '#0B192C',
+                            navy: '#0A192F',
                             navyDark: '#051124',
-                            navyBlue: '#1E3A8A',
+                            navyBlue: '#0F2744',
                             blue: '#0066FF',
                             blueHover: '#0052CC',
-                            teal: '#00C853',
+                            teal: '#00D2FF',
                             cyan: '#00B4D8',
                             emerald: '#10B981',
                             heading: '#0F172A',
@@ -53,9 +53,9 @@
             overflow-x: hidden;
         }
 
-        /* Hero Background with Dubai Skyline Overlay */
+        /* Hero Background with Dubai Skyline Overlay and AI Nodes */
         .hero-bg {
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.92) 45%, rgba(11, 25, 44, 0.3) 100%),
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.92) 48%, rgba(10, 25, 47, 0.35) 100%),
                         url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2000&auto=format&fit=crop');
             background-size: cover;
             background-position: center right;
@@ -63,11 +63,11 @@
 
         /* Glowing digital connection nodes overlay */
         .tech-nodes-overlay {
-            background-image: radial-gradient(circle at 75% 30%, rgba(0, 180, 216, 0.22) 0%, transparent 40%),
-                              radial-gradient(circle at 85% 70%, rgba(0, 102, 255, 0.18) 0%, transparent 45%);
+            background-image: radial-gradient(circle at 75% 30%, rgba(0, 210, 255, 0.25) 0%, transparent 40%),
+                              radial-gradient(circle at 85% 70%, rgba(0, 102, 255, 0.20) 0%, transparent 45%);
         }
 
-        /* Custom soft tint icon containers matching mockup */
+        /* Icon Container Styling */
         .icon-box-gear { background-color: #E0F2FE; color: #0284C7; }
         .icon-box-nodes { background-color: #CCFBF1; color: #0D9488; }
         .icon-box-db { background-color: #F3E8FF; color: #9333EA; }
@@ -80,7 +80,7 @@
         }
         .service-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 30px -10px rgba(0, 102, 255, 0.12);
+            box-shadow: 0 12px 30px -10px rgba(0, 102, 255, 0.14);
             border-color: #CBD5E1;
         }
 
@@ -92,7 +92,7 @@
             box-shadow: 0 10px 25px -5px rgba(0, 102, 255, 0.08);
         }
 
-        /* Underline Navigation Pill Effect */
+        /* Navigation Underline Effect */
         .nav-link {
             position: relative;
             transition: color 0.2s ease;
@@ -112,7 +112,6 @@
             border-radius: 2px;
         }
 
-        /* Modal blur */
         .modal-blur {
             backdrop-filter: blur(8px);
         }
@@ -120,19 +119,18 @@
 </head>
 <body class="antialiased">
 
-    <!-- 1. TOP NAVIGATION BAR -->
+    <!-- 1. NAVIGATION BAR -->
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
             <!-- Logo -->
             <a href="#home" class="flex items-center space-x-3 group">
-                <!-- Custom W Node Logo Icon -->
                 <svg width="38" height="34" viewBox="0 0 38 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="6" cy="6" r="4" fill="#00B4D8"/>
                     <circle cx="19" cy="8" r="4" fill="#0066FF"/>
-                    <circle cx="32" cy="6" r="4" fill="#0B192C"/>
+                    <circle cx="32" cy="6" r="4" fill="#0A192F"/>
                     <path d="M6 6L12.5 22L19 8L25.5 22L32 6" stroke="#0066FF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="12.5" cy="22" r="3.5" fill="#00C853"/>
+                    <circle cx="12.5" cy="22" r="3.5" fill="#00D2FF"/>
                     <circle cx="25.5" cy="22" r="3.5" fill="#0066FF"/>
                 </svg>
                 <div class="flex flex-col">
@@ -141,7 +139,7 @@
                 </div>
             </a>
 
-            <!-- Navigation Links -->
+            <!-- Nav Links -->
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
                 <a href="#home" class="nav-link active" id="nav-home">Home</a>
                 <a href="#about" class="nav-link" id="nav-about">About Us</a>
@@ -151,7 +149,7 @@
                 <a href="#contact" class="nav-link" id="nav-contact">Contact</a>
             </nav>
 
-            <!-- Header Action CTA Button -->
+            <!-- Header Action Button -->
             <div class="hidden sm:flex items-center">
                 <a href="#contact" onclick="openContactModal(event)" class="bg-brand-blue hover:bg-brand-blueHover text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 shadow-md shadow-blue-500/20 flex items-center space-x-2">
                     <span>Get in Touch</span>
@@ -179,30 +177,31 @@
         </div>
     </header>
 
-    <!-- 2. HERO SECTION -->
-    <section id="home" class="relative hero-bg tech-nodes-overlay min-h-[580px] lg:min-h-[640px] flex items-center py-16 lg:py-20 border-b border-slate-100">
+    <!-- 2. HERO SECTION (AI-ENABLED REWRITE) -->
+    <section id="home" class="relative hero-bg tech-nodes-overlay min-h-[600px] lg:min-h-[660px] flex items-center py-16 lg:py-20 border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="max-w-2xl space-y-6">
                 
-                <!-- Tagline Badge -->
-                <div class="text-xs font-extrabold text-brand-blue uppercase tracking-widest">
-                    INTELLIGENT SOLUTIONS. LASTING IMPACT.
+                <!-- Eyebrow Tagline -->
+                <div class="text-xs font-extrabold text-brand-blue uppercase tracking-widest flex items-center space-x-2">
+                    <span class="inline-block w-2 h-2 rounded-full bg-brand-teal animate-pulse"></span>
+                    <span>INTELLIGENT ENTERPRISE SOLUTIONS. LASTING IMPACT.</span>
                 </div>
 
                 <!-- Headline -->
                 <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-heading leading-[1.15] tracking-tight">
-                    Transforming Businesses Through <span class="text-brand-blue">Smarter Technology</span>
+                    Transforming Businesses Through <span class="text-brand-blue">AI-Driven Technology</span>
                 </h1>
 
-                <!-- Body Text -->
-                <p class="text-slate-600 text-sm sm:text-base leading-relaxed pr-2 sm:pr-6">
-                    Webkanini Technologies helps businesses transform and optimise their operations through intelligent automation, systems integration and enterprise resource planning. We connect business processes, streamline workflows and enable organisations to improve efficiency, visibility and scalability.
+                <!-- Subheadline -->
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed pr-2 sm:pr-4">
+                    Webkanini Technologies empowers enterprises to achieve continuous operational excellence through AI-enabled transformation, intelligent automation, and integrated enterprise systems. By harnessing agentic workflows and smart data architecture, we connect fragmented processes, optimize core operations, and equip organizations with the predictive intelligence needed for sustainable, agile scale.
                 </p>
 
                 <!-- Action CTA Buttons -->
                 <div class="flex flex-wrap items-center gap-4 pt-3">
                     <a href="#services" class="bg-brand-blue hover:bg-brand-blueHover text-white px-7 py-3 rounded-full font-bold text-sm transition-all shadow-lg shadow-blue-500/25 flex items-center space-x-2">
-                        <span>Explore Our Services</span>
+                        <span>Explore AI Services</span>
                         <i class="fa-solid fa-arrow-right text-xs"></i>
                     </a>
                     <a href="#contact" onclick="openContactModal(event)" class="text-brand-heading hover:text-brand-blue font-bold text-sm px-4 py-3 flex items-center space-x-2 transition-colors">
@@ -215,101 +214,100 @@
         </div>
     </section>
 
-    <!-- 3. OUR SERVICES SECTION (5 Horizontal Cards) -->
+    <!-- 3. SERVICES SECTION (5 AI-UPDATED CORE PILLARS) -->
     <section id="services" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <!-- Section Header -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-14">
                 <div class="lg:col-span-6 space-y-2">
                     <div class="text-xs font-extrabold text-brand-blue uppercase tracking-widest">
-                        OUR SERVICES
+                        OUR AI SERVICES
                     </div>
                     <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-heading leading-tight">
-                        Solutions for a Connected and Efficient Business
+                        Solutions for a Connected, Intelligent Enterprise
                     </h2>
                 </div>
                 <div class="lg:col-span-6">
                     <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                        We provide end-to-end consulting and technology services to help organisations streamline operations, improve productivity and build a stronger foundation for future growth.
+                        We deliver end-to-end AI consulting, cognitive automation, and enterprise integration to help organizations modernize operations, amplify productivity, and build a resilient foundation for long-term growth.
                     </p>
                 </div>
             </div>
 
-            <!-- 5 Column Service Cards -->
+            <!-- 5 Service Cards Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
                 
-                <!-- Service 1 -->
+                <!-- Service 1: Intelligent Automation -->
                 <div class="service-card bg-white border border-slate-200/90 rounded-2xl p-6 flex flex-col justify-between">
                     <div>
                         <div class="w-11 h-11 rounded-xl icon-box-gear flex items-center justify-center text-lg mb-5">
-                            <i class="fa-solid fa-gear"></i>
+                            <i class="fa-solid fa-robot"></i>
                         </div>
                         <h3 class="text-base font-bold text-brand-heading mb-3 leading-snug">
                             Intelligent Automation
                         </h3>
                         <p class="text-slate-500 text-xs leading-relaxed">
-                            Streamline workflows, reduce manual effort and improve productivity with intelligent automation solutions.
+                            Deploy cognitive workflows, AI agent swarms, and natural language automation to streamline complex tasks and reduce operational friction.
                         </p>
                     </div>
                 </div>
 
-                <!-- Service 2 -->
+                <!-- Service 2: Systems Integration -->
                 <div class="service-card bg-white border border-slate-200/90 rounded-2xl p-6 flex flex-col justify-between">
                     <div>
                         <div class="w-11 h-11 rounded-xl icon-box-nodes flex items-center justify-center text-lg mb-5">
-                            <i class="fa-solid fa-circle-nodes"></i>
+                            <i class="fa-solid fa-network-wired"></i>
                         </div>
                         <h3 class="text-base font-bold text-brand-heading mb-3 leading-snug">
                             Systems Integration
                         </h3>
                         <p class="text-slate-500 text-xs leading-relaxed">
-                            Connect applications, processes and data for seamless information flow across your organisation.
+                            Connect disparate software, enterprise APIs, and data silos into a unified real-time AI-powered data fabric across your organization.
                         </p>
                     </div>
                 </div>
 
-                <!-- Service 3 -->
+                <!-- Service 3: Enterprise Resource Planning -->
                 <div class="service-card bg-white border border-slate-200/90 rounded-2xl p-6 flex flex-col justify-between">
                     <div>
                         <div class="w-11 h-11 rounded-xl icon-box-db flex items-center justify-center text-lg mb-5">
-                            <i class="fa-solid fa-database"></i>
+                            <i class="fa-solid fa-chart-pie"></i>
                         </div>
                         <h3 class="text-base font-bold text-brand-heading mb-3 leading-snug">
                             Enterprise Resource Planning
                         </h3>
                         <p class="text-slate-500 text-xs leading-relaxed">
-                            Optimise core functions including finance, procurement, sales, inventory and operations.
+                            Modernize and optimize core finance, supply chain, procurement, and HR functions with predictive AI analytics and automated reporting.
                         </p>
                     </div>
                 </div>
 
-                <!-- Service 4 -->
+                <!-- Service 4: Digital Transformation Consulting -->
                 <div class="service-card bg-white border border-slate-200/90 rounded-2xl p-6 flex flex-col justify-between">
                     <div>
                         <div class="w-11 h-11 rounded-xl icon-box-cloud flex items-center justify-center text-lg mb-5">
-                            <i class="fa-solid fa-cloud"></i>
+                            <i class="fa-solid fa-brain-circuit"></i>
                         </div>
                         <h3 class="text-base font-bold text-brand-heading mb-3 leading-snug">
                             Digital Transformation Consulting
                         </h3>
                         <p class="text-slate-500 text-xs leading-relaxed">
-                            Identify opportunities to modernise processes, improve performance and enable scalable growth.
+                            Formulate end-to-end AI roadmaps, audit legacy architectures, and align modern tech stacks with high-ROI business outcomes.
                         </p>
                     </div>
                 </div>
 
-                <!-- Service 5 -->
+                <!-- Service 5: Business Process Optimisation -->
                 <div class="service-card bg-white border border-slate-200/90 rounded-2xl p-6 flex flex-col justify-between sm:col-span-2 lg:col-span-1">
                     <div>
                         <div class="w-11 h-11 rounded-xl icon-box-doc flex items-center justify-center text-lg mb-5">
-                            <i class="fa-regular fa-file-lines"></i>
+                            <i class="fa-solid fa-arrows-spin"></i>
                         </div>
                         <h3 class="text-base font-bold text-brand-heading mb-3 leading-snug">
                             Business Process Optimisation
                         </h3>
                         <p class="text-slate-500 text-xs leading-relaxed">
-                            Analyse existing workflows and develop practical solutions to improve efficiency, control and visibility.
+                            Analyze process bottlenecks with process mining and generative AI tools to design self-optimizing business workflows.
                         </p>
                     </div>
                 </div>
@@ -328,27 +326,27 @@
                 <div class="lg:col-span-5 relative">
                     <div class="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3] sm:aspect-[16/11]">
                         <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000&auto=format&fit=crop" 
-                             alt="Webkanini Team in Executive Consultation" 
+                             alt="Webkanini AI Consulting Team" 
                              class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent"></div>
                         
                         <div class="absolute bottom-6 left-6 right-6 text-white">
                             <div class="text-xl sm:text-2xl font-bold leading-snug">
-                                Your Partner in <br>Business Transformation
+                                Your Partner in <br>AI Transformation
                             </div>
-                            <div class="w-12 h-1 bg-brand-cyan mt-3 rounded-full"></div>
+                            <div class="w-12 h-1 bg-brand-teal mt-3 rounded-full"></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- About Text & 4 Pillar Grid -->
+                <!-- About Text & 4 AI Pillars -->
                 <div class="lg:col-span-7 space-y-8">
                     <div class="space-y-3">
                         <h2 class="text-2xl sm:text-3xl font-bold text-brand-heading">
                             About Webkanini
                         </h2>
                         <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                            We are a team of experienced professionals, united by a common goal: to help businesses work smarter through connected systems, intelligent automation and efficient business processes.
+                            We are a team of experienced enterprise consultants and AI solution architects, united by a common goal: to help businesses operate smarter through connected AI systems, cognitive automation, and resilient digital architectures.
                         </p>
                     </div>
 
@@ -358,44 +356,44 @@
                         <!-- Pillar 1 -->
                         <div class="flex items-start space-x-4">
                             <div class="w-10 h-10 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue shrink-0">
-                                <i class="fa-solid fa-crosshairs text-base"></i>
+                                <i class="fa-solid fa-bullseye text-base"></i>
                             </div>
                             <div>
                                 <h4 class="text-sm font-bold text-brand-heading mb-1">Business Focused</h4>
-                                <p class="text-xs text-slate-500 leading-relaxed">We understand your challenges and goals.</p>
+                                <p class="text-xs text-slate-500 leading-relaxed">We align AI initiatives directly with your strategic KPIs and operational goals.</p>
                             </div>
                         </div>
 
                         <!-- Pillar 2 -->
                         <div class="flex items-start space-x-4">
                             <div class="w-10 h-10 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue shrink-0">
-                                <i class="fa-solid fa-user-group text-base"></i>
+                                <i class="fa-solid fa-microchip text-base"></i>
                             </div>
                             <div>
-                                <h4 class="text-sm font-bold text-brand-heading mb-1">Experienced Team</h4>
-                                <p class="text-xs text-slate-500 leading-relaxed">Skilled professionals with diverse expertise.</p>
+                                <h4 class="text-sm font-bold text-brand-heading mb-1">AI-Experienced Team</h4>
+                                <p class="text-xs text-slate-500 leading-relaxed">Skilled enterprise engineers and generative AI specialists.</p>
                             </div>
                         </div>
 
                         <!-- Pillar 3 -->
                         <div class="flex items-start space-x-4">
                             <div class="w-10 h-10 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue shrink-0">
-                                <i class="fa-regular fa-lightbulb text-base"></i>
+                                <i class="fa-solid fa-screwdriver-wrench text-base"></i>
                             </div>
                             <div>
-                                <h4 class="text-sm font-bold text-brand-heading mb-1">Practical Solutions</h4>
-                                <p class="text-xs text-slate-500 leading-relaxed">Real-world solutions for measurable results.</p>
+                                <h4 class="text-sm font-bold text-brand-heading mb-1">Practical Engineering</h4>
+                                <p class="text-xs text-slate-500 leading-relaxed">Deployable, secure, and production-ready enterprise tech stacks.</p>
                             </div>
                         </div>
 
                         <!-- Pillar 4 -->
                         <div class="flex items-start space-x-4">
                             <div class="w-10 h-10 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue shrink-0">
-                                <i class="fa-regular fa-shield-check text-base"></i>
+                                <i class="fa-solid fa-handshake text-base"></i>
                             </div>
                             <div>
                                 <h4 class="text-sm font-bold text-brand-heading mb-1">Long-Term Partnership</h4>
-                                <p class="text-xs text-slate-500 leading-relaxed">Your growth is our success.</p>
+                                <p class="text-xs text-slate-500 leading-relaxed">Continuous model tuning, governance, and long-term innovation support.</p>
                             </div>
                         </div>
 
@@ -406,8 +404,8 @@
         </div>
     </section>
 
-    <!-- 5. OUR APPROACH SECTION (4 Horizontal Steps) -->
-    <section class="py-20 bg-white border-b border-slate-100">
+    <!-- 5. FOUR-STEP APPROACH SECTION (#approach) -->
+    <section id="approach" class="py-20 bg-white border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="mb-14">
@@ -415,7 +413,7 @@
                     OUR APPROACH
                 </div>
                 <h2 class="text-2xl sm:text-3xl font-bold text-brand-heading">
-                    From Understanding to Lasting Value
+                    From Understanding to AI-Powered Value
                 </h2>
             </div>
 
@@ -430,9 +428,9 @@
                         </div>
                         <i class="fa-solid fa-arrow-right text-slate-300 hidden lg:block text-sm pr-4"></i>
                     </div>
-                    <h3 class="text-base font-bold text-brand-heading pt-1">Understand</h3>
+                    <h3 class="text-base font-bold text-brand-heading pt-1">Discover & Analyze</h3>
                     <p class="text-slate-500 text-xs leading-relaxed">
-                        We analyse your business needs and process goals.
+                        Assess workflow bottlenecks, legacy data hygiene, and high-value AI automation targets.
                     </p>
                 </div>
 
@@ -444,9 +442,9 @@
                         </div>
                         <i class="fa-solid fa-arrow-right text-slate-300 hidden lg:block text-sm pr-4"></i>
                     </div>
-                    <h3 class="text-base font-bold text-brand-heading pt-1">Design</h3>
+                    <h3 class="text-base font-bold text-brand-heading pt-1">Architecture & Design</h3>
                     <p class="text-slate-500 text-xs leading-relaxed">
-                        We create practical, fit-for-purpose solutions.
+                        Design fit-for-purpose AI agent models, secure data fabrics, and ERP integration layers.
                     </p>
                 </div>
 
@@ -458,9 +456,9 @@
                         </div>
                         <i class="fa-solid fa-arrow-right text-slate-300 hidden lg:block text-sm pr-4"></i>
                     </div>
-                    <h3 class="text-base font-bold text-brand-heading pt-1">Implement</h3>
+                    <h3 class="text-base font-bold text-brand-heading pt-1">Implement & Integrate</h3>
                     <p class="text-slate-500 text-xs leading-relaxed">
-                        We deliver with a focus on quality and performance.
+                        Execute seamless deployment with robust security protocols and zero business disruption.
                     </p>
                 </div>
 
@@ -471,9 +469,9 @@
                             4
                         </div>
                     </div>
-                    <h3 class="text-base font-bold text-brand-heading pt-1">Scale</h3>
+                    <h3 class="text-base font-bold text-brand-heading pt-1">Scale & Optimize</h3>
                     <p class="text-slate-500 text-xs leading-relaxed">
-                        We support your growth with continuous improvement.
+                        Ensure continuous model tuning, proactive performance monitoring, and organization-wide expansion.
                     </p>
                 </div>
 
@@ -482,8 +480,8 @@
         </div>
     </section>
 
-    <!-- 6. OUR VALUES SECTION -->
-    <section class="py-16 bg-slate-50/70 border-b border-slate-200/60">
+    <!-- 6. OUR VALUES BAR (#values) -->
+    <section id="values" class="py-16 bg-slate-50/70 border-b border-slate-200/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -504,7 +502,7 @@
                         <i class="fa-regular fa-shield text-brand-blue text-xl shrink-0"></i>
                         <div>
                             <div class="text-xs font-bold text-brand-heading">Integrity</div>
-                            <div class="text-[11px] text-slate-500">We do what is right.</div>
+                            <div class="text-[11px] text-slate-500">Ethical AI & transparency.</div>
                         </div>
                     </div>
 
@@ -517,18 +515,18 @@
                     </div>
 
                     <div class="bg-white border border-slate-200/80 rounded-xl p-4 flex items-center space-x-3">
-                        <i class="fa-regular fa-lightbulb text-brand-blue text-xl shrink-0"></i>
+                        <i class="fa-solid fa-wand-magic-sparkles text-brand-blue text-xl shrink-0"></i>
                         <div>
-                            <div class="text-xs font-bold text-brand-heading">Innovation</div>
-                            <div class="text-[11px] text-slate-500">We solve for what's next.</div>
+                            <div class="text-xs font-bold text-brand-heading">AI Innovation</div>
+                            <div class="text-[11px] text-slate-500">Pioneering smart workflows.</div>
                         </div>
                     </div>
 
                     <div class="bg-white border border-slate-200/80 rounded-xl p-4 flex items-center space-x-3">
-                        <i class="fa-solid fa-chart-line text-brand-blue text-xl shrink-0"></i>
+                        <i class="fa-solid fa-laptop-code text-brand-blue text-xl shrink-0"></i>
                         <div>
-                            <div class="text-xs font-bold text-brand-heading">Excellence</div>
-                            <div class="text-[11px] text-slate-500">We deliver quality.</div>
+                            <div class="text-xs font-bold text-brand-heading">Engineering Excellence</div>
+                            <div class="text-[11px] text-slate-500">Precision execution.</div>
                         </div>
                     </div>
 
@@ -539,7 +537,7 @@
         </div>
     </section>
 
-    <!-- 7. INDUSTRIES SECTION (Complete & Functional Content) -->
+    <!-- 7. INDUSTRIES SECTION (AI TRANSFORMATION USE CASES) -->
     <section id="industries" class="py-20 bg-white border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
@@ -548,99 +546,116 @@
                     INDUSTRIES WE SERVE
                 </div>
                 <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-heading">
-                    Industry Solutions Built for Scale
+                    AI Transformation Across Key Sectors
                 </h2>
                 <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    We combine domain knowledge with modern ERP, cloud integration, and process automation to solve complex operational challenges across key B2B sectors.
+                    We combine sector domain knowledge with enterprise AI architectures to accelerate operational velocity across high-impact global industries.
                 </p>
             </div>
 
             <!-- Industries Interactive Cards Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                <!-- Industry 1 -->
+                <!-- Financial Services -->
                 <div class="bg-slate-50/70 border border-slate-200/90 rounded-2xl p-7 hover:border-brand-blue transition-all flex flex-col justify-between">
                     <div class="space-y-4">
                         <div class="w-12 h-12 rounded-xl bg-blue-100 text-brand-blue flex items-center justify-center text-xl">
-                            <i class="fa-solid fa-boxes-packing"></i>
+                            <i class="fa-solid fa-building-columns"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-brand-heading">Trading & Distribution</h3>
+                        <h3 class="text-lg font-bold text-brand-heading">Financial Services</h3>
                         <p class="text-xs text-slate-600 leading-relaxed">
-                            End-to-end supply chain visibility, multi-warehouse inventory reconciliation, automated purchase orders, and real-time shipment tracking.
+                            Automated fraud anomaly detection, intelligent document extraction for loan underwriting, predictive cash flow forecasting, and automated compliance auditing.
                         </p>
                     </div>
                     <ul class="mt-6 pt-4 border-t border-slate-200/80 text-xs text-slate-500 space-y-2">
-                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Automated Order Processing</span></li>
-                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Multi-Currency Accounting</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Cognitive Document Processing</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Real-Time Audit Trails</span></li>
                     </ul>
                 </div>
 
-                <!-- Industry 2 -->
+                <!-- Supply Chain & Logistics -->
                 <div class="bg-slate-50/70 border border-slate-200/90 rounded-2xl p-7 hover:border-brand-blue transition-all flex flex-col justify-between">
                     <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl">
-                            <i class="fa-solid fa-helmet-safety"></i>
+                        <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-truck-fast"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-brand-heading">Contracting & Engineering</h3>
+                        <h3 class="text-lg font-bold text-brand-heading">Supply Chain & Logistics</h3>
                         <p class="text-xs text-slate-600 leading-relaxed">
-                            Comprehensive project accounting, job costing, percentage-of-completion revenue recognition, subcontractor billing, and field timesheet syncing.
+                            Predictive inventory reordering, AI-driven demand forecasting, route optimization agents, and real-time shipment exception handling.
                         </p>
                     </div>
                     <ul class="mt-6 pt-4 border-t border-slate-200/80 text-xs text-slate-500 space-y-2">
-                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Real-Time Job Profitability</span></li>
-                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Equipment Asset Tracking</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Automated Customs Clearance</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Multi-Warehouse Optimization</span></li>
                     </ul>
                 </div>
 
-                <!-- Industry 3 -->
+                <!-- Healthcare & Life Sciences -->
                 <div class="bg-slate-50/70 border border-slate-200/90 rounded-2xl p-7 hover:border-brand-blue transition-all flex flex-col justify-between">
                     <div class="space-y-4">
                         <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl">
-                            <i class="fa-solid fa-store"></i>
+                            <i class="fa-solid fa-hospital-user"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-brand-heading">Retail & Wholesale</h3>
+                        <h3 class="text-lg font-bold text-brand-heading">Healthcare & Life Sciences</h3>
                         <p class="text-xs text-slate-600 leading-relaxed">
-                            Seamless integration between e-commerce platforms, POS terminals, central ERP inventory, and automated fulfillment workflows.
+                            HIPAA-compliant administrative automation, AI patient triage support, medical inventory tracking, and seamless electronic health record (EHR) sync.
+                        </p>
+                    </div>
+                    <ul class="mt-6 pt-4 border-t border-slate-200/80 text-xs text-slate-500 space-y-2">
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Patient Record Automation</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Regulatory Compliance Governance</span></li>
+                    </ul>
+                </div>
+
+                <!-- Retail & E-Commerce -->
+                <div class="bg-slate-50/70 border border-slate-200/90 rounded-2xl p-7 hover:border-brand-blue transition-all flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-100 text-brand-cyan flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-brand-heading">Retail & E-Commerce</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Hyper-personalized recommendation engines, dynamic pricing algorithms, omnichannel ERP inventory synchronization, and automated customer service workflows.
                         </p>
                     </div>
                     <ul class="mt-6 pt-4 border-t border-slate-200/80 text-xs text-slate-500 space-y-2">
                         <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Omnichannel Inventory Sync</span></li>
-                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Automated Returns Management</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Automated Customer Engagement</span></li>
                     </ul>
                 </div>
 
-                <!-- Industry 4 -->
+                <!-- Manufacturing -->
                 <div class="bg-slate-50/70 border border-slate-200/90 rounded-2xl p-7 hover:border-brand-blue transition-all flex flex-col justify-between">
                     <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-cyan-100 text-brand-cyan flex items-center justify-center text-xl">
-                            <i class="fa-solid fa-user-tie"></i>
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-industry"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-brand-heading">Professional Services</h3>
+                        <h3 class="text-lg font-bold text-brand-heading">Manufacturing</h3>
                         <p class="text-xs text-slate-600 leading-relaxed">
-                            Optimised resource utilization dashboards, automated time & expense tracking, milestone-based invoicing, and client portal integrations.
+                            Predictive equipment maintenance, automated quality control inspection via computer vision, raw material yield optimization, and ERP integration.
                         </p>
                     </div>
                     <ul class="mt-6 pt-4 border-t border-slate-200/80 text-xs text-slate-500 space-y-2">
-                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Resource Planning & Billing</span></li>
-                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Customized Client Analytics</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Predictive Downtime Prevention</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Automated Quality Auditing</span></li>
                     </ul>
                 </div>
 
-                <!-- Industry 5 -->
-                <div class="bg-slate-50/70 border border-slate-200/90 rounded-2xl p-7 hover:border-brand-blue transition-all flex flex-col justify-between sm:col-span-2 lg:col-span-2">
+                <!-- Professional Services -->
+                <div class="bg-slate-50/70 border border-slate-200/90 rounded-2xl p-7 hover:border-brand-blue transition-all flex flex-col justify-between">
                     <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center text-xl">
-                            <i class="fa-solid fa-hospital"></i>
+                        <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-user-gear"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-brand-heading">Healthcare & Operations</h3>
+                        <h3 class="text-lg font-bold text-brand-heading">Professional Services</h3>
                         <p class="text-xs text-slate-600 leading-relaxed">
-                            Process compliance automation, medical inventory auditing, asset tracking, and system integration across administrative and operations software.
+                            Intelligent project resource allocation, automated time-tracking summaries, generative proposal drafting, and client reporting dashboards.
                         </p>
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-6 pt-4 border-t border-slate-200/80 text-xs text-slate-500">
-                        <div class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Medical Supply Audit Trails</span></div>
-                        <div class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>HIPAA & Regulatory Workflows</span></div>
-                    </div>
+                    <ul class="mt-6 pt-4 border-t border-slate-200/80 text-xs text-slate-500 space-y-2">
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Smart Resource Allocation</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-brand-emerald"></i> <span>Automated Milestone Billing</span></li>
+                    </ul>
                 </div>
 
             </div>
@@ -648,7 +663,7 @@
         </div>
     </section>
 
-    <!-- 8. WHY US SECTION (Detailed Value Propositions & Differentiators) -->
+    <!-- 8. WHY US SECTION (#why-us) -->
     <section id="why-us" class="py-20 bg-slate-50/60 border-b border-slate-200/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
@@ -660,54 +675,54 @@
                     Why Enterprise Leaders Partner with Us
                 </h2>
                 <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    We bridge technical engineering with practical business strategy to deliver solutions that fit your organization perfectly and drive measurable returns.
+                    We combine strategic AI engineering, zero-trust enterprise security, and pragmatic business process design to deliver measurable competitive advantage.
                 </p>
             </div>
 
             <!-- 4 High-Impact Feature Cards Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 
-                <!-- Card 1 -->
+                <!-- Feature 1 -->
                 <div class="feature-card bg-white border border-slate-200/90 rounded-2xl p-8 space-y-4">
                     <div class="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 text-brand-blue flex items-center justify-center text-xl">
                         <i class="fa-solid fa-brain"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-brand-heading">Deep Functional & Technical Expertise</h3>
+                    <h3 class="text-lg font-bold text-brand-heading">Proven Enterprise AI Frameworks</h3>
                     <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        Our team combines accounting controls, operational knowledge, and systems engineering. We speak both business logic and code, ensuring zero disconnect between requirements and implementation.
+                        We don't rely on experimental prototypes. We deploy battle-tested AI model pipelines and agentic architecture patterns configured specifically for high-availability enterprise environments.
                     </p>
                 </div>
 
-                <!-- Card 2 -->
+                <!-- Feature 2 -->
                 <div class="feature-card bg-white border border-slate-200/90 rounded-2xl p-8 space-y-4">
                     <div class="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 text-brand-blue flex items-center justify-center text-xl">
-                        <i class="fa-solid fa-sliders"></i>
+                        <i class="fa-solid fa-plug-circle-check"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-brand-heading">Fit-for-Purpose Architecture</h3>
+                    <h3 class="text-lg font-bold text-brand-heading">Frictionless System Integration</h3>
                     <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        We reject bloated, over-engineered software stacks. Every solution is custom-configured around your exact workflows, keeping licensing costs reasonable and system performance high.
+                        We integrate AI capabilities directly into your existing ERP, CRM, and legacy backend platforms without breaking operations or forcing total rip-and-replace overhauls.
                     </p>
                 </div>
 
-                <!-- Card 3 -->
+                <!-- Feature 3 -->
                 <div class="feature-card bg-white border border-slate-200/90 rounded-2xl p-8 space-y-4">
                     <div class="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 text-brand-blue flex items-center justify-center text-xl">
-                        <i class="fa-solid fa-diagram-project"></i>
+                        <i class="fa-solid fa-chart-line-up"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-brand-heading">Seamless Integration Capabilities</h3>
+                    <h3 class="text-lg font-bold text-brand-heading">Measurable ROI Focus</h3>
                     <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        We eliminate data silos by connecting legacy software, modern cloud platforms, CRM databases, and custom APIs into a single, unified enterprise data ecosystem.
+                        Every deployment is tracked against concrete efficiency targets: hours saved, error reduction rates, processing cost reductions, and operational throughput gains.
                     </p>
                 </div>
 
-                <!-- Card 4 -->
+                <!-- Feature 4 -->
                 <div class="feature-card bg-white border border-slate-200/90 rounded-2xl p-8 space-y-4">
                     <div class="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 text-brand-blue flex items-center justify-center text-xl">
-                        <i class="fa-solid fa-headset"></i>
+                        <i class="fa-solid fa-shield-halved"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-brand-heading">End-to-End Implementation & Support</h3>
+                    <h3 class="text-lg font-bold text-brand-heading">Zero-Trust Data Governance</h3>
                     <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        Our engagement does not end at deployment. We conduct thorough user training, process auditing, performance tuning, and ongoing support for continuous optimization.
+                        Your enterprise data remains strictly private. We enforce enterprise-grade encryption, RBAC controls, and strict compliance boundaries for all AI workloads.
                     </p>
                 </div>
 
@@ -728,15 +743,15 @@
                             GET IN TOUCH
                         </div>
                         <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-heading">
-                            Let's Build Your Digital Future
+                            Accelerate Your AI Transformation
                         </h2>
                         <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                            Ready to streamline your business operations and achieve sustainable growth? Speak with our technology consultants today.
+                            Ready to transform your enterprise operations with intelligent automation and integrated AI systems? Schedule a consultation with our transformation architects.
                         </p>
                     </div>
 
                     <!-- Contact Info Cards -->
-                    <div class="space-y-4 pt-4">
+                    <div class="space-y-4 pt-2">
                         <div class="flex items-start space-x-4 p-4 bg-slate-50 rounded-xl border border-slate-200/80">
                             <div class="w-10 h-10 rounded-lg bg-blue-100 text-brand-blue flex items-center justify-center text-base shrink-0">
                                 <i class="fa-solid fa-envelope"></i>
@@ -769,11 +784,11 @@
                     </div>
                 </div>
 
-                <!-- Right Contact Form Card -->
+                <!-- Right Form Card -->
                 <div class="lg:col-span-7 bg-slate-50/80 border border-slate-200/90 rounded-2xl p-8 sm:p-10 shadow-sm relative">
                     
                     <form id="section-contact-form" class="space-y-5" onsubmit="handleSectionFormSubmit(event)">
-                        <h3 class="text-xl font-bold text-brand-heading mb-2">Send Us a Message</h3>
+                        <h3 class="text-xl font-bold text-brand-heading mb-2">Request an AI Consultation</h3>
                         
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
@@ -794,10 +809,11 @@
                             </div>
 
                             <div>
-                                <label class="block text-xs font-semibold text-slate-700 mb-1">Primary Interest</label>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Service Interest</label>
                                 <select class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-xs focus:outline-none focus:border-brand-blue text-slate-700">
-                                    <option>Intelligent Business Automation</option>
-                                    <option>Systems Integration</option>
+                                    <option>AI-Enabled Transformation</option>
+                                    <option>Intelligent Automation</option>
+                                    <option>Systems Integration & Data Fabric</option>
                                     <option>Enterprise Resource Planning (ERP)</option>
                                     <option>Digital Transformation Consulting</option>
                                     <option>Business Process Optimisation</option>
@@ -807,21 +823,21 @@
 
                         <div>
                             <label class="block text-xs font-semibold text-slate-700 mb-1">Message / Requirements *</label>
-                            <textarea rows="4" required placeholder="Tell us about your project or current operational challenges..." class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-xs focus:outline-none focus:border-brand-blue"></textarea>
+                            <textarea rows="4" required placeholder="Tell us about your organization's goals or current operational challenges..." class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-xs focus:outline-none focus:border-brand-blue"></textarea>
                         </div>
 
                         <button type="submit" class="w-full bg-brand-blue hover:bg-brand-blueHover text-white py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-blue-500/20">
-                            Submit Inquiry
+                            Submit Consultation Request
                         </button>
                     </form>
 
-                    <!-- Success State -->
+                    <!-- Success Overlay Toast -->
                     <div id="section-form-success" class="hidden text-center py-12 space-y-4">
                         <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl">
                             <i class="fa-solid fa-check"></i>
                         </div>
                         <h4 class="text-xl font-bold text-brand-heading">Thank You!</h4>
-                        <p class="text-xs text-slate-600 max-w-sm mx-auto">Your inquiry has been received successfully. A consultant from Webkanini Technologies will contact you shortly.</p>
+                        <p class="text-xs text-slate-600 max-w-sm mx-auto">Your inquiry has been received. An AI Transformation Consultant from Webkanini Technologies will contact you within 24 hours.</p>
                         <button onclick="resetSectionForm()" class="px-6 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-lg text-xs font-semibold transition-colors">Send Another Message</button>
                     </div>
 
@@ -837,7 +853,7 @@
             
             <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
                 
-                <!-- Footer Brand & Tagline -->
+                <!-- Brand & Tagline -->
                 <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
                     <a href="#home" class="flex items-center space-x-2">
                         <svg width="32" height="28" viewBox="0 0 38 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -852,7 +868,7 @@
                     <span class="text-xs font-medium text-slate-400">Implement. Automate. Scale.</span>
                 </div>
 
-                <!-- Footer Links & Social Icons -->
+                <!-- Footer Links -->
                 <div class="flex flex-wrap items-center gap-6 text-xs font-medium text-slate-300">
                     <a href="#home" class="hover:text-white transition-colors">Home</a>
                     <a href="#about" class="hover:text-white transition-colors">About Us</a>
@@ -869,7 +885,7 @@
 
             </div>
 
-            <!-- Bottom Legal Bar -->
+            <!-- Legal Bar -->
             <div class="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row justify-between items-center text-[11px] text-slate-400 gap-4">
                 <div>
                     &copy; 2026 Webkanini Technologies. All rights reserved.
@@ -884,7 +900,7 @@
         </div>
     </footer>
 
-    <!-- 11. INTERACTIVE POPUP MODAL (TRIGGERED BY GET IN TOUCH BUTTONS) -->
+    <!-- 11. INTERACTIVE POPUP MODAL -->
     <div id="contact-modal" class="fixed inset-0 bg-slate-950/70 modal-blur z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl border border-slate-100 space-y-6">
             
@@ -893,9 +909,9 @@
             </button>
 
             <div class="space-y-1">
-                <div class="text-xs font-bold text-brand-blue uppercase tracking-widest">GET IN TOUCH</div>
-                <h3 class="text-2xl font-bold text-brand-heading">Start Your Transformation</h3>
-                <p class="text-xs text-slate-500">Fill in your details below and our consultants will respond within 24 hours.</p>
+                <div class="text-xs font-bold text-brand-blue uppercase tracking-widest">AI TRANSFORMATION CONSULTATION</div>
+                <h3 class="text-2xl font-bold text-brand-heading">Start Your AI Journey</h3>
+                <p class="text-xs text-slate-500">Provide your contact details to schedule a strategy session with our architects.</p>
             </div>
 
             <form id="modal-form" class="space-y-4" onsubmit="handleModalFormSubmit(event)">
@@ -910,9 +926,10 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-slate-600 mb-1">Primary Service of Interest</label>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Service Interest</label>
                     <select class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-xs focus:outline-none focus:border-brand-blue text-slate-700">
-                        <option>Intelligent Business Automation</option>
+                        <option>AI-Enabled Transformation</option>
+                        <option>Intelligent Automation</option>
                         <option>Systems Integration</option>
                         <option>Enterprise Resource Planning (ERP)</option>
                         <option>Digital Transformation Consulting</option>
@@ -922,11 +939,11 @@
 
                 <div>
                     <label class="block text-xs font-semibold text-slate-600 mb-1">How can we help?</label>
-                    <textarea rows="3" placeholder="Briefly describe your requirements..." class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-xs focus:outline-none focus:border-brand-blue"></textarea>
+                    <textarea rows="3" placeholder="Briefly describe your objectives or challenges..." class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-xs focus:outline-none focus:border-brand-blue"></textarea>
                 </div>
 
                 <button type="submit" class="w-full bg-brand-blue hover:bg-brand-blueHover text-white py-3 rounded-lg font-bold text-xs uppercase tracking-wider transition-colors shadow-md shadow-blue-500/20">
-                    Submit Inquiry
+                    Submit Request
                 </button>
             </form>
 
@@ -934,15 +951,15 @@
                 <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-xl">
                     <i class="fa-solid fa-check"></i>
                 </div>
-                <h4 class="text-lg font-bold text-brand-heading">Inquiry Received</h4>
-                <p class="text-xs text-slate-500">Thank you for contacting Webkanini Technologies. Our team will get back to you shortly.</p>
+                <h4 class="text-lg font-bold text-brand-heading">Consultation Requested</h4>
+                <p class="text-xs text-slate-500">Thank you for reaching out to Webkanini Technologies. Our team will contact you shortly.</p>
                 <button onclick="closeContactModal()" class="px-6 py-2 bg-slate-100 text-slate-700 rounded-lg text-xs font-semibold">Close</button>
             </div>
 
         </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC FOR NAVIGATION & INTERACTIVES -->
+    <!-- JAVASCRIPT LOGIC -->
     <script>
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
@@ -978,7 +995,7 @@
             document.getElementById('section-form-success').classList.add('hidden');
         }
 
-        // Active Navigation Highlight on Scroll
+        // Active Navigation Scrollspy
         window.addEventListener('scroll', () => {
             const sections = ['home', 'about', 'services', 'industries', 'why-us', 'contact'];
             const scrollPos = window.scrollY + 120;
